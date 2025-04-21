@@ -23,7 +23,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # Configure CORS to allow requests from React frontend
-cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # db = MySQLdb.Connect(host="containers-us-west-78.railway.app", port=5480,
 #                      user="root", passwd="F09DY9R7wJEsodY9LB1B", db="railway")
@@ -186,4 +186,5 @@ def chat():
     return jsonify({'aiMessage': response})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
