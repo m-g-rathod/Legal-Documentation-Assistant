@@ -73,7 +73,7 @@ function InputForm() {
 
       setDisplayForm(false);
 
-      fetch(`http://127.0.0.1:5000/api/final-content`, {
+      fetch(`https://legal-documentation-assistant-backend.onrender.com/api/final-content`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -124,7 +124,7 @@ function InputForm() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch(`http://127.0.0.1:5000/api/form-details?form_id=${id}`)
+    fetch(`https://legal-documentation-assistant-backend.onrender.com/api/form-details?form_id=${id}`)
       .then((res) => {
         if (!res.ok) {
           throw Error("could not fetch");
